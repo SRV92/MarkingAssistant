@@ -10,7 +10,7 @@ $config = array(
     ),
 ),
 'urls' => array(
-    'baseUrl' => 'http://seanvowles.co.uk',
+    'baseUrl' => 'http://seanvowles.co.uk/MarkingAssistant',
 ),
 'paths' => array(
     'resources' => '/var/www/html/MarkingAssistant',
