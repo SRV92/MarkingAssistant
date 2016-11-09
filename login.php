@@ -31,10 +31,9 @@
                 </div>
             </form>
         </div>
+        <h2>Warning</h2>
     </div>
 </div>
-
-
 
 <?php
     require_once TEMPLATES_PATH.'/footer.php';
