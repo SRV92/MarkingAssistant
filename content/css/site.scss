@@ -47,7 +47,7 @@ body {
 }
 
 #content {
-    &.login {
+    &.base--form {
         height: 100vh;
         background: $primary-color;
 
@@ -67,7 +67,6 @@ body {
 
         .box {
             width: 400px;
-            height: 320px;
             margin: 0 auto;
             padding: 20px;
             color: white;
@@ -84,6 +83,22 @@ body {
                     border-radius: none;
                     color: white;
 
+                    &::-webkit-input-placeholder {
+                       color: white;
+                    }
+
+                    &:-moz-placeholder { /* Firefox 18- */
+                       color: white;
+                    }
+
+                    &::-moz-placeholder {  /* Firefox 19+ */
+                       color: white;
+                    }
+
+                    &:-ms-input-placeholder {
+                       color: white;
+                    }
+
                     &:focus {
                         border-top-color: $primary-color;
                         border-right-color: $primary-color;
@@ -94,19 +109,16 @@ body {
                 }
 
                 label {
-                    font-size: 0.75rem;
+                    font-size: 1rem;
                 }
 
                 .login--btn {
                     background-color: $primary-color;
-                    border: 1px solid white;
-                    border: 3px solid white;
-                    position: absolute;
-                    bottom: 20px;
-                    width: 360px;
+                    border: 2px solid white;
+                    border-radius: 0;
                     color: white;
-                    font-weight: bold;
-                    font-size: 1.25rem;
+                    font-weight: thin;
+                    font-size: 1rem;
                     outline: none;
                     text-shadow: none;
                     @include transition(.3s ease);
@@ -120,6 +132,10 @@ body {
                         background-color: darken($primary-color, 5%);
                         @include transition(.5s ease);
                     }
+                }
+
+                .register--btn {
+                    @extend .login--btn;
                 }
             }
         }

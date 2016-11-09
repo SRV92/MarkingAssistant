@@ -3,6 +3,11 @@
     require_once 'resources/config.php';
 
     require_once TEMPLATES_PATH.'/header.php';
+
+    if (!$user->is_loggedin()!="")
+    {
+        echo "ERROR NOT LOGGED IN";
+    }
 ?>
 
 
