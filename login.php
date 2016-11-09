@@ -31,7 +31,6 @@
                 </div>
             </form>
         </div>
-        <h2>Warning</h2>
     </div>
 </div>
 
