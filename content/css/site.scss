@@ -1,6 +1,5 @@
 // Variables
-$primary-color: #0095BF;
-// Mixins
+$primary-color: #0095BF; // Mixins
 @mixin transition($args...) {
     -webkit-transition: $args;
     -moz-transition: $args;
@@ -9,6 +8,7 @@ $primary-color: #0095BF;
     transition: $args;
 }
 // Initial styling which will be inherited by each viewport
+
 html {
     height: 100%;
 }
@@ -19,84 +19,107 @@ body {
     font-size: 100%;
 }
 
+#header {
+    .bg-inverse {
+        @include transition(.5s ease all);
+
+        &.active {
+            background-color: white !important;
+            -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+            -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+            .navbar-brand {
+                color: #373a3c;
+            }
+            .nav-item {
+                .nav-link {
+                    color: #373a3c;
+                }
+            }
+        }
+    }
+}
+
 #footer {
     background-color: #333;
     color: white;
     padding: 20px 0;
 }
 
-.login {
-    height: 100vh;
-    background: $primary-color;
+#content {
+    &.login {
+        height: 100vh;
+        background: $primary-color;
 
-    .login--title {
-        padding-top: 50px;
-        padding-bottom: 50px;
-        width: 600px;
-        margin: 0 auto;
-        text-align: center;
+        .login--title {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
 
-        h1 {
-            font-size: 4rem;
-            font-weight: bold;
-            color: white;
-        }
-    }
-
-    .box {
-        width: 400px;
-        height: 320px;
-        margin: 0 auto;
-        padding: 20px;
-        color: white;
-        position: relative;
-
-        .form-group {
-            .form-control {
-                background-color: lighten($primary-color, 5%);
-                border-radius: 0;
-                border-top-color: $primary-color;
-                border-right-color: $primary-color;
-                border-bottom: 3px solid white;
-                border-left-color: $primary-color;
-                border-radius: none;
+            h1 {
+                font-size: 4rem;
+                font-weight: bold;
                 color: white;
+            }
+        }
 
-                &:focus {
+        .box {
+            width: 400px;
+            height: 320px;
+            margin: 0 auto;
+            padding: 20px;
+            color: white;
+            position: relative;
+
+            .form-group {
+                .form-control {
+                    background-color: lighten($primary-color, 5%);
+                    border-radius: 0;
                     border-top-color: $primary-color;
                     border-right-color: $primary-color;
                     border-bottom: 3px solid white;
                     border-left-color: $primary-color;
-                    background-color: lighten($primary-color, 4%);
-                }
-            }
+                    border-radius: none;
+                    color: white;
 
-            label {
-                font-size: 0.75rem;
-            }
-
-            .login--btn {
-                background-color: $primary-color;
-                border: 1px solid white;
-                border: 3px solid white;
-                position: absolute;
-                bottom: 20px;
-                width: 360px;
-                color: white;
-                font-weight: bold;
-                font-size: 1.25rem;
-                outline: none;
-                text-shadow: none;
-                @include transition(.3s ease);
-
-                &:hover {
-                    background-color: darken($primary-color, 3.5%);
-                    @include transition(.5s ease);
+                    &:focus {
+                        border-top-color: $primary-color;
+                        border-right-color: $primary-color;
+                        border-bottom: 3px solid white;
+                        border-left-color: $primary-color;
+                        background-color: lighten($primary-color, 4%);
+                    }
                 }
 
-                &:active {
-                    background-color: darken($primary-color, 5%);
-                    @include transition(.5s ease);
+                label {
+                    font-size: 0.75rem;
+                }
+
+                .login--btn {
+                    background-color: $primary-color;
+                    border: 1px solid white;
+                    border: 3px solid white;
+                    position: absolute;
+                    bottom: 20px;
+                    width: 360px;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 1.25rem;
+                    outline: none;
+                    text-shadow: none;
+                    @include transition(.3s ease);
+
+                    &:hover {
+                        background-color: darken($primary-color, 3.5%);
+                        @include transition(.5s ease);
+                    }
+
+                    &:active {
+                        background-color: darken($primary-color, 5%);
+                        @include transition(.5s ease);
+                    }
                 }
             }
         }
