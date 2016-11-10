@@ -4,9 +4,12 @@
 
     require_once TEMPLATES_PATH.'/header.php';
 
-    if (!$user->is_loggedin()!="")
+    if (!$user->is_loggedin())
     {
-        echo "ERROR NOT LOGGED IN";
+        $user->redirect('login');
+    }
+    else if ($user->is_loggedin()) {
+        $user->redirect('home');
     }
 ?>
 

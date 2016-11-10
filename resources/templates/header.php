@@ -19,7 +19,14 @@
         <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
         <a class="navbar-brand" href="/MarkingAssistant">Marking Assistant</a>
             <ul class="nav navbar-nav float-xs-right">
-                <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+                <?php
+                    if (!$user->is_loggedin()){
+                        echo '<li class="nav-item"><a class="nav-link" href="login">Login</a></li>';
+                    }
+                    else {
+                        echo '<li class="nav-item"><a class="nav-link" href="logout.php?logout=true">Logout</a></li>';
+                    }
+                ?>
             </ul>
         </nav>
     </div>

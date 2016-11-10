@@ -5,6 +5,8 @@
      * Connection state is stored here for database access and code re-usability
     */
 
+    session_start();
+
     $db_host = '35.160.9.209';
     $db_name = 'marking_assistant';
     $db_user = 'admin';
@@ -20,7 +22,7 @@
 
 
     // load user class
-    // might be better to load this for each individual page that requires the user class. 
+    // might be better to load this for each individual page that requires the user class.
     include_once 'resources/library/class.user.php';
     // set user with current connection
     $user = new USER($conn);

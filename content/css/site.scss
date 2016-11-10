@@ -1,5 +1,24 @@
 // Variables
-$primary-color: #0095BF; // Mixins
+$dashboard-color: #252830;
+$dashboard-color-one: #616777;
+$dashboard-color-two: #454A58;
+$dashboard-color-three: #181D2B;
+$dashboard-color-four: #0F1525;
+
+$secondary-color: #292631;
+$secondary-color-one: #696379;
+$secondary-color-two: #4B465A;
+$secondary-color-three: #1E192C;
+$secondary-color-four: #150F26;
+
+$tertiary-color: #474435;
+$tertiary-color-one: #B0AA8C;
+$tertiary-color-two: #827D63;
+$tertiary-color-three: #403B21;
+$tertiary-color-four: #373112;
+
+$text-color: lighten($dashboard-color-one, 25%);
+
 @mixin transition($args...) {
     -webkit-transition: $args;
     -moz-transition: $args;
@@ -22,20 +41,13 @@ body {
 #header {
     .bg-inverse {
         @include transition(.5s ease all);
+        background-color: $tertiary-color !important;
+        -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 
         &.active {
-            background-color: white !important;
-            -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-            -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-            .navbar-brand {
-                color: #373a3c;
-            }
-            .nav-item {
-                .nav-link {
-                    color: #373a3c;
-                }
-            }
+            background-color: $tertiary-color-two !important;
         }
     }
 }
@@ -49,7 +61,7 @@ body {
 #content {
     &.base--form {
         height: 100vh;
-        background: $primary-color;
+        background: $dashboard-color;
 
         .login--title {
             padding-top: 50px;
@@ -74,37 +86,39 @@ body {
 
             .form-group {
                 .form-control {
-                    background-color: lighten($primary-color, 5%);
+                    background-color: lighten($dashboard-color, 5%);
                     border-radius: 0;
-                    border-top-color: $primary-color;
-                    border-right-color: $primary-color;
+                    border-top-color: $dashboard-color;
+                    border-right-color: $dashboard-color;
                     border-bottom: 3px solid white;
-                    border-left-color: $primary-color;
+                    border-left-color: $dashboard-color;
                     border-radius: none;
                     color: white;
 
                     &::-webkit-input-placeholder {
-                       color: white;
+                        color: white;
                     }
 
-                    &:-moz-placeholder { /* Firefox 18- */
-                       color: white;
+                    &:-moz-placeholder {
+                        /* Firefox 18- */
+                        color: white;
                     }
 
-                    &::-moz-placeholder {  /* Firefox 19+ */
-                       color: white;
+                    &::-moz-placeholder {
+                        /* Firefox 19+ */
+                        color: white;
                     }
 
                     &:-ms-input-placeholder {
-                       color: white;
+                        color: white;
                     }
 
                     &:focus {
-                        border-top-color: $primary-color;
-                        border-right-color: $primary-color;
+                        border-top-color: $dashboard-color;
+                        border-right-color: $dashboard-color;
                         border-bottom: 3px solid white;
-                        border-left-color: $primary-color;
-                        background-color: lighten($primary-color, 4%);
+                        border-left-color: $dashboard-color;
+                        background-color: lighten($dashboard-color, 4%);
                     }
                 }
 
@@ -112,31 +126,76 @@ body {
                     font-size: 1rem;
                 }
 
-                .login--btn {
-                    background-color: $primary-color;
-                    border: 2px solid white;
-                    border-radius: 0;
-                    color: white;
-                    font-weight: thin;
-                    font-size: 1rem;
-                    outline: none;
-                    text-shadow: none;
-                    @include transition(.3s ease);
+                .buttons {
+                    padding-top: 24px;
 
+                    .login--btn {
+                        background-color: $dashboard-color;
+                        border: 2px solid white;
+                        border-radius: 0;
+                        color: white;
+                        font-weight: thin;
+                        font-size: 1rem;
+                        outline: none;
+                        text-shadow: none;
+                        @include transition(.3s ease);
+
+                        &:hover {
+                            background-color: darken($dashboard-color, 3.5%);
+                            @include transition(.5s ease);
+                        }
+
+                        &:active {
+                            background-color: darken($dashboard-color, 5%);
+                            @include transition(.5s ease);
+                        }
+                    }
+
+                    .register--btn {
+                        @extend .login--btn;
+                    }
+                }
+            }
+        }
+    }
+
+    &.dashboard {
+        background-color: $dashboard-color;
+        padding: 40px 80px;
+
+        .sidebar {
+            height: 100vh;
+            padding: 0 20px 20px;
+
+            .nav-sidebar {
+                margin-left: -20px;
+                margin-right: -20px;
+                padding-top: 60px;
+                padding-right: 60px;
+
+                li {
                     &:hover {
-                        background-color: darken($primary-color, 3.5%);
-                        @include transition(.5s ease);
+                        background-color: $dashboard-color-two;
                     }
 
-                    &:active {
-                        background-color: darken($primary-color, 5%);
-                        @include transition(.5s ease);
+                    a {
+                        color: $text-color;
+                        display: block;
+                        padding: 10px 20px;
+                        text-decoration: none;
                     }
                 }
+            }
+        }
 
-                .register--btn {
-                    @extend .login--btn;
-                }
+        .dashboard__body {
+            h2 {
+                color: $text-color;
+                font-weight: thin;
+                font-size: 1.5rem;
+            }
+            hr {
+                background-color: $dashboard-color-one;
             }
         }
     }

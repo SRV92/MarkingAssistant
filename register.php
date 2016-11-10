@@ -39,7 +39,7 @@
                     $error[] = 'sorry email id already taken !';
                 } else {
                     if ($user->register($fname, $lname, $uname, $umail, $upass)) {
-                        $user->redirect('sign-up.php?joined');
+                        $user->redirect('register.php?joined');
                     }
                 }
             } catch (PDOException $e) {
