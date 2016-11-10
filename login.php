@@ -5,7 +5,7 @@
     require_once TEMPLATES_PATH.'/header.php';
 
     if ($user->is_loggedin() != '') {
-        $user->redirect('home');
+        $user->redirect('index');
     }
 
     if (isset($_POST['btn-login'])) {
@@ -14,7 +14,7 @@
         $upass = $_POST['txt_password'];
 
         if ($user->login($uname, $umail, $upass)) {
-            $user->redirect('home');
+            $user->redirect('index');
         } else {
             $error = 'Wrong Details';
         }
@@ -59,7 +59,7 @@
                             <button type="submit" name="btn-login" class="btn btn-sm btn-block login--btn">Login</button>
                         </div>
                         <div class="col-xs-6">
-                            <a href="register.php" class="btn btn-sm btn-block register--btn">Register</a>
+                            <a href="register" class="btn btn-sm btn-block register--btn">Register</a>
                         </div>
                     </div>
                 </div>

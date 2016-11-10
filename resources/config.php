@@ -25,7 +25,7 @@
     // might be better to load this for each individual page that requires the user class.
     include_once 'resources/library/class.user.php';
     // set user with current connection
-    $user = new USER($conn);
+    $user = new User($conn);
 
     $config = array(
         'urls' => array(
